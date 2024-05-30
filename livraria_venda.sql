@@ -1,0 +1,55 @@
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+--
+-- Host: localhost    Database: livraria
+-- ------------------------------------------------------
+-- Server version	8.0.34
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `venda`
+--
+
+DROP TABLE IF EXISTS `venda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `venda` (
+  `idvenda` int NOT NULL AUTO_INCREMENT,
+  `data` date DEFAULT NULL,
+  `total` float DEFAULT '0',
+  `idcliente` int NOT NULL,
+  PRIMARY KEY (`idvenda`),
+  KEY `fk_venda_cliente` (`idcliente`),
+  CONSTRAINT `fk_venda_cliente` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idcliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `venda`
+--
+
+LOCK TABLES `venda` WRITE;
+/*!40000 ALTER TABLE `venda` DISABLE KEYS */;
+INSERT INTO `venda` VALUES (1,'2012-01-01',30,1),(2,'2012-02-02',60,2),(3,'2012-03-03',90,3),(4,'2012-04-04',120,4),(5,'2012-05-05',50,5),(6,'2012-06-06',600,6),(7,'2012-07-07',70,7),(8,'2012-08-08',85,8),(9,'2012-09-09',100,9),(10,'2012-10-10',35,10),(11,'2012-11-11',99,1),(12,'2012-12-12',59,2),(13,'2011-01-02',46,3),(14,'2011-02-01',399,4),(15,'2011-03-04',42,5),(16,'2011-04-03',79,6),(17,'2011-05-06',130,7),(18,'2011-06-05',245,8),(19,'2011-07-06',19,9),(20,'2011-08-09',14,10),(21,'2021-06-01',300,11),(22,'2021-06-15',450,4);
+/*!40000 ALTER TABLE `venda` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-05-30 20:54:58

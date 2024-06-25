@@ -131,6 +131,15 @@ order by f.funcao;
 
 select * from departamentos;
 
+/* Liste o nome dos funcionários que começam pela letra B */
+select primeironome as nome_funcionario
+from funcionarios
+where primeironome like 'B%';
+
+/* Liste o nome dos funcionários cujo sobrenome termina com a letra A */
+select ultimonome as sobrenome
+from funcionarios
+where ultimonome like '%a';
 
 
 
